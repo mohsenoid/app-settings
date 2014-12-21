@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AppConfig Test</string>
+    <string name="app_name">AppSettings</string>
     <string name="name">Name</string>
     <string name="name_hint">Enter Your Name</string>
     <string name="age">Age</string>
