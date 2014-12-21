@@ -1,4 +1,4 @@
-package info.mirhoseini.example.appconfigtest;
+package com.mirhoseini.appsettings;
 
 import android.content.Context;
 import android.content.SharedPreferences.Editor;
