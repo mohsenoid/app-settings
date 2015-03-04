@@ -1,5 +1,4 @@
 # app_settings
-==========
 
 <h1>App Settings</h1>
 <p>This is a best practice for Android Applications Config Management using Shared Preferences.<br />
