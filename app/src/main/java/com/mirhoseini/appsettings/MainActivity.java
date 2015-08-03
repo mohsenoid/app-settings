@@ -8,8 +8,6 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 
-import com.mirhoseini.appsettings.AppSettings;
-
 
 public class MainActivity extends Activity implements View.OnClickListener {
     public static final int WEIGHT_FACTOR = 2;
@@ -29,6 +27,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         initForm();
+
+        // you can switch to another preferences file instead of default
+        AppSettings.switchSharePreferences("my_prefs", AppSettings.PreferencesMode.MULTI_PROCESS);
+
         loadValues();
     }
 
