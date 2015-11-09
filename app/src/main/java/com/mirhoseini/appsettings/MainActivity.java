@@ -28,12 +28,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         initForm();
 
-        // you can switch to another preferences file instead of default
-        AppSettings.switchSharePreferences("my_prefs", AppSettings.PreferencesMode.MULTI_PROCESS);
+        // you can switch to another preferences file instead of application default one
+        AppSettings.switchSharedPreferences("my_very_own_prefs", AppSettings.PreferencesMode.MULTI_PROCESS);
 
         loadValues();
     }
 
+    // init form views
     private void initForm() {
         etName = (EditText) findViewById(R.id.etName);
         spAge = (Spinner) findViewById(R.id.spAge);
@@ -42,6 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         sbWeight = (SeekBar) findViewById(R.id.sbWeight);
     }
 
+    // load saved values
     private void loadValues() {
         etName.setText(AppSettings.getString(this, KEY_NAME, ""));
         spAge.setSelection(AppSettings.getInt(this, KEY_AGE, 0));
@@ -50,6 +52,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         sbWeight.setProgress((int) (AppSettings.getFloat(this, KEY_WEIGHT, 0f) * WEIGHT_FACTOR));
     }
 
+    // clear saved values
     private void clearValues() {
         AppSettings.clearValue(this, KEY_NAME);
         AppSettings.clearValue(this, KEY_AGE);
@@ -59,6 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         loadValues();
     }
 
+    // save input values
     private void saveValues() {
         AppSettings.setValue(this, KEY_NAME, etName.getText().toString().trim());
         AppSettings.setValue(this, KEY_AGE, spAge.getSelectedItemPosition());
