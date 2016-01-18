@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion '23.0.1'
     defaultConfig {
-        applicationId "info.mirhoseini.example.appconfigtest"
+        applicationId "com.mirhoseini.appsettings"
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
@@ -15,8 +15,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
     }
 }
 
