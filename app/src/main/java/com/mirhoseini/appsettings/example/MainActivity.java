@@ -1,4 +1,4 @@
-package com.mirhoseini.appsettings;
+package com.mirhoseini.appsettings.example;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+
+import com.mirhoseini.appsettings.AppSettings;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
