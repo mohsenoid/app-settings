@@ -3,9 +3,9 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 version = "1.0.0"
-group = "com.mirhoseini"
+group = "com.mirhoseini.appsettings"
 
-def siteUrl = "http://mirhoseini.com"
+def siteUrl = "http://mirhoseini.com/app-settings"
 def gitUrl = "https://github.com/mmirhoseini/app_settings.git"
 
 android {
