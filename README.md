@@ -8,10 +8,39 @@ This is a best practice for Android Applications Config Management using Shared 
   * Eliminate SharedPreferences and Editor Commits calls.
   * Different method ovverride to set and get all data types.
   * Allow to use different XML files for saving and accessing settings.
+```java
+// load saved values
+    private void loadValues() {
+        etName.setText(AppSettings.getString(this, KEY_NAME, ""));
+        spAge.setSelection(AppSettings.getInt(this, KEY_AGE, 0));
+        rbMale.setChecked(AppSettings.getBoolean(this, KEY_IS_MALE, true));
+        rbFemale.setChecked(!AppSettings.getBoolean(this, KEY_IS_MALE, true));
+        sbWeight.setProgress((int) (AppSettings.getFloat(this, KEY_WEIGHT, 0f) * WEIGHT_FACTOR));
+    }
+
+    // clear saved values
+    private void clearValues() {
+        AppSettings.clearValue(this, KEY_NAME);
+        AppSettings.clearValue(this, KEY_AGE);
+        AppSettings.clearValue(this, KEY_IS_MALE);
+        AppSettings.clearValue(this, KEY_WEIGHT);
+
+        loadValues();
+    }
+
+    // save input values
+    private void saveValues() {
+        AppSettings.setValue(this, KEY_NAME, etName.getText().toString().trim());
+        AppSettings.setValue(this, KEY_AGE, spAge.getSelectedItemPosition());
+        AppSettings.setValue(this, KEY_IS_MALE, rbMale.isChecked());
+        AppSettings.setValue(this, KEY_WEIGHT, (float) sbWeight.getProgress() / WEIGHT_FACTOR);
+    }
+```
 
 USAGE
 --------
 
+Grab via Maven:
 ```xml
 <dependency>
   <groupId>com.mirhoseini.appsettings</groupId>
