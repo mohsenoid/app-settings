@@ -1,5 +1,5 @@
-# app_settings
-==============
+App Settings
+============
 
 ![Logo](/app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
@@ -78,9 +78,8 @@ License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
     
-Designed By: [<b>Mohsen Mirhoseini Argi</b>][3]<br />
+Designed By: [<b>Mohsen Mirhoseini Argi</b>][1]<br />
 
 Contact me: mohsen@mirhoseini.com
 
-[2]: https://search.maven.org/remote_content?g=com.jakewharton&a=butterknife&v=LATEST
-[3]: http://www.mirhoseini.com
+[1]: http://www.mirhoseini.com
