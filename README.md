@@ -1,7 +1,7 @@
 App Settings
 ============
 
-![Logo](/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+![Logo](icon.png)
 
 This is a best practice for Android Applications Config Management using Shared Preferences.<br />
 <b>AppSettings</b> class help you to manage deferent types of data in your application and load them in memory for faster use also save them in shared preferences for next run.
