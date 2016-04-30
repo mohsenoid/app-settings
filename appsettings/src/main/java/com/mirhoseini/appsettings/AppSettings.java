@@ -158,8 +158,9 @@ public class AppSettings {
      *
      * @param context application context
      * @param key     key
+     * @return commit result
      */
-    public static void setValue(Context context, String key, Boolean value) {
+    public static boolean setValue(Context context, String key, Boolean value) {
         Log.i(tag, "Set " + key + ":" + value);
 
         if (booleanValues == null)
@@ -168,9 +169,11 @@ public class AppSettings {
         Editor editor = getCurrentSharedPreferences(context)
                 .edit();
         editor.putBoolean(key, value);
-        editor.commit();
+        boolean result = editor.commit();
 
         booleanValues.put(key, value);
+
+        return result;
     }
 
     // ---------------------- Float ----------------------
@@ -225,8 +228,9 @@ public class AppSettings {
      *
      * @param context application context
      * @param key     key
+     * @return commit result
      */
-    public static void setValue(Context context, String key, Float value) {
+    public static boolean setValue(Context context, String key, Float value) {
         Log.i(tag, "Set " + key + ":" + value);
 
         if (floatValues == null)
@@ -235,9 +239,11 @@ public class AppSettings {
         Editor editor = getCurrentSharedPreferences(context)
                 .edit();
         editor.putFloat(key, value);
-        editor.commit();
+        boolean result = editor.commit();
 
         floatValues.put(key, value);
+
+        return result;
     }
 
     // ---------------------- Long ----------------------
@@ -292,8 +298,9 @@ public class AppSettings {
      *
      * @param context application context
      * @param key     key
+     * @return commit result
      */
-    public static void setValue(Context context, String key, Long value) {
+    public static boolean setValue(Context context, String key, Long value) {
         Log.i(tag, "Set " + key + ":" + value);
 
         if (longValues == null)
@@ -302,9 +309,11 @@ public class AppSettings {
         Editor editor = getCurrentSharedPreferences(context)
                 .edit();
         editor.putLong(key, value);
-        editor.commit();
+        boolean result = editor.commit();
 
         longValues.put(key, value);
+
+        return result;
     }
 
     // ---------------------- String ----------------------
@@ -361,8 +370,9 @@ public class AppSettings {
      *
      * @param context application context
      * @param key     key
+     * @return commit result
      */
-    public static void setValue(Context context, String key, String value) {
+    public static boolean setValue(Context context, String key, String value) {
         Log.i(tag, "Set " + key + ":" + value);
 
         if (stringValues == null)
@@ -371,9 +381,11 @@ public class AppSettings {
         Editor editor = getCurrentSharedPreferences(context)
                 .edit();
         editor.putString(key, value);
-        editor.commit();
+        boolean result = editor.commit();
 
         stringValues.put(key, value);
+
+        return result;
     }
 
     // ---------------------- Integer ----------------------
@@ -430,8 +442,9 @@ public class AppSettings {
      *
      * @param context application context
      * @param key     key
+     * @return commit result
      */
-    public static void setValue(Context context, String key, Integer value) {
+    public static boolean setValue(Context context, String key, Integer value) {
         Log.i(tag, "Set " + key + ":" + value);
 
         if (intValues == null)
@@ -440,9 +453,11 @@ public class AppSettings {
         Editor editor = getCurrentSharedPreferences(context)
                 .edit();
         editor.putInt(key, value);
-        editor.commit();
+        boolean result = editor.commit();
 
         intValues.put(key, value);
+
+        return result;
     }
 
     /**
