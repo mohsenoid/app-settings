@@ -54,9 +54,9 @@ public class AppSettings {
      */
     private static SharedPreferences getCurrentSharedPreferences(Context context) {
         if (advancedPreferencesName == null) {
-            return PreferenceManager.getDefaultSharedPreferences(context);
+            return PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         } else {
-            return context.getSharedPreferences(advancedPreferencesName, advancedPreferencesMode.getValue());
+            return context.getApplicationContext().getSharedPreferences(advancedPreferencesName, advancedPreferencesMode.getValue());
         }
     }
 
@@ -78,7 +78,7 @@ public class AppSettings {
         if (longValues == null)
             longValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.remove(key);
         editor.commit();
@@ -147,7 +147,7 @@ public class AppSettings {
 
         if (!booleanValues.containsKey(key) || forceUpdate)
             booleanValues.put(key,
-                    getCurrentSharedPreferences(context)
+                    getCurrentSharedPreferences(context.getApplicationContext())
                             .getBoolean(key, defaultValue));
 
         return booleanValues.get(key);
@@ -166,7 +166,7 @@ public class AppSettings {
         if (booleanValues == null)
             booleanValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.putBoolean(key, value);
         boolean result = editor.commit();
@@ -217,7 +217,7 @@ public class AppSettings {
 
         if (!floatValues.containsKey(key) || forceUpdate)
             floatValues.put(key,
-                    getCurrentSharedPreferences(context)
+                    getCurrentSharedPreferences(context.getApplicationContext())
                             .getFloat(key, defaultValue));
 
         return floatValues.get(key);
@@ -236,7 +236,7 @@ public class AppSettings {
         if (floatValues == null)
             floatValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.putFloat(key, value);
         boolean result = editor.commit();
@@ -287,7 +287,7 @@ public class AppSettings {
 
         if (!longValues.containsKey(key) || forceUpdate)
             longValues.put(key,
-                    getCurrentSharedPreferences(context)
+                    getCurrentSharedPreferences(context.getApplicationContext())
                             .getLong(key, defaultValue));
 
         return longValues.get(key);
@@ -306,7 +306,7 @@ public class AppSettings {
         if (longValues == null)
             longValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.putLong(key, value);
         boolean result = editor.commit();
@@ -359,7 +359,7 @@ public class AppSettings {
 
         if (!stringValues.containsKey(key))
             stringValues.put(key,
-                    getCurrentSharedPreferences(context)
+                    getCurrentSharedPreferences(context.getApplicationContext())
                             .getString(key, defaultValue));
 
         return stringValues.get(key);
@@ -378,7 +378,7 @@ public class AppSettings {
         if (stringValues == null)
             stringValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.putString(key, value);
         boolean result = editor.commit();
@@ -431,7 +431,7 @@ public class AppSettings {
 
         if (!intValues.containsKey(key))
             intValues.put(key,
-                    getCurrentSharedPreferences(context)
+                    getCurrentSharedPreferences(context.getApplicationContext())
                             .getInt(key, defaultValue));
 
         return intValues.get(key);
@@ -450,7 +450,7 @@ public class AppSettings {
         if (intValues == null)
             intValues = new HashMap<>();
 
-        Editor editor = getCurrentSharedPreferences(context)
+        Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
         editor.putInt(key, value);
         boolean result = editor.commit();
