@@ -40,3 +40,6 @@ publish/
 
 # iml files
 *.iml
+
+# fix proxy setting issue
+/gradle.properties
