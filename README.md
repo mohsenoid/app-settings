@@ -1,4 +1,4 @@
-App Settings
+App Settings [![Circle CI](https://circleci.com/gh/mmirhoseini/app_settings.svg?style=svg)](https://circleci.com/gh/mmirhoseini/app_settings)
 ============
 
 ![Logo](logo.png)
