@@ -45,13 +45,13 @@ Grab via Maven:
 <dependency>
   <groupId>com.mirhoseini.appsettings</groupId>
   <artifactId>appsettings</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.mirhoseini.appsettings:appsettings:1.0.0'
+compile 'com.mirhoseini.appsettings:appsettings:1.0.1'
 ```
 
 
