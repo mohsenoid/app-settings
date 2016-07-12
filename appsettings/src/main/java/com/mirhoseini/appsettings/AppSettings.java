@@ -146,9 +146,13 @@ public class AppSettings {
             booleanValues = new HashMap<>();
 
         if (!booleanValues.containsKey(key) || forceUpdate)
-            booleanValues.put(key,
-                    getCurrentSharedPreferences(context.getApplicationContext())
-                            .getBoolean(key, defaultValue));
+            if (getCurrentSharedPreferences(context.getApplicationContext()).contains(key))
+                booleanValues.put(key,
+                        getCurrentSharedPreferences(context.getApplicationContext()).getBoolean(key, defaultValue == null ?
+                                false //primitive null value fixer which never happens
+                                : defaultValue));
+            else
+                booleanValues.put(key, defaultValue);
 
         return booleanValues.get(key);
     }
@@ -216,9 +220,14 @@ public class AppSettings {
             floatValues = new HashMap<>();
 
         if (!floatValues.containsKey(key) || forceUpdate)
-            floatValues.put(key,
-                    getCurrentSharedPreferences(context.getApplicationContext())
-                            .getFloat(key, defaultValue));
+            if (getCurrentSharedPreferences(context.getApplicationContext()).contains(key))
+                floatValues.put(key,
+                        getCurrentSharedPreferences(context.getApplicationContext()).getFloat(key, defaultValue == null ?
+                                0 //primitive null value fixer which never happens
+                                : defaultValue));
+            else
+                floatValues.put(key, defaultValue);
+
 
         return floatValues.get(key);
     }
@@ -286,9 +295,13 @@ public class AppSettings {
             longValues = new HashMap<>();
 
         if (!longValues.containsKey(key) || forceUpdate)
-            longValues.put(key,
-                    getCurrentSharedPreferences(context.getApplicationContext())
-                            .getLong(key, defaultValue));
+            if (getCurrentSharedPreferences(context.getApplicationContext()).contains(key))
+                longValues.put(key,
+                        getCurrentSharedPreferences(context.getApplicationContext()).getLong(key, defaultValue == null ?
+                                0 //primitive null value fixer which never happens
+                                : defaultValue));
+            else
+                longValues.put(key, defaultValue);
 
         return longValues.get(key);
     }
@@ -430,9 +443,13 @@ public class AppSettings {
             intValues = new HashMap<>();
 
         if (!intValues.containsKey(key))
-            intValues.put(key,
-                    getCurrentSharedPreferences(context.getApplicationContext())
-                            .getInt(key, defaultValue));
+            if (getCurrentSharedPreferences(context.getApplicationContext()).contains(key))
+                intValues.put(key,
+                        getCurrentSharedPreferences(context.getApplicationContext()).getInt(key, defaultValue == null ?
+                                0 //primitive null value fixer which never happens
+                                : defaultValue));
+            else
+                intValues.put(key, defaultValue);
 
         return intValues.get(key);
     }
