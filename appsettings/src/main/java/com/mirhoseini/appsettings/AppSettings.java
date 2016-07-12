@@ -172,7 +172,12 @@ public class AppSettings {
 
         Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
-        editor.putBoolean(key, value);
+
+        if (null == value)
+            editor.remove(key);
+        else
+            editor.putBoolean(key, value);
+
         boolean result = editor.commit();
 
         booleanValues.put(key, value);
@@ -247,7 +252,12 @@ public class AppSettings {
 
         Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
-        editor.putFloat(key, value);
+
+        if (null == value)
+            editor.remove(key);
+        else
+            editor.putFloat(key, value);
+
         boolean result = editor.commit();
 
         floatValues.put(key, value);
@@ -370,7 +380,7 @@ public class AppSettings {
         if (stringValues == null)
             stringValues = new HashMap<>();
 
-        if (!stringValues.containsKey(key))
+        if (!stringValues.containsKey(key) || forceUpdate)
             stringValues.put(key,
                     getCurrentSharedPreferences(context.getApplicationContext())
                             .getString(key, defaultValue));
@@ -442,7 +452,7 @@ public class AppSettings {
         if (intValues == null)
             intValues = new HashMap<>();
 
-        if (!intValues.containsKey(key))
+        if (!intValues.containsKey(key) || forceUpdate)
             if (getCurrentSharedPreferences(context.getApplicationContext()).contains(key))
                 intValues.put(key,
                         getCurrentSharedPreferences(context.getApplicationContext()).getInt(key, defaultValue == null ?
@@ -469,7 +479,12 @@ public class AppSettings {
 
         Editor editor = getCurrentSharedPreferences(context.getApplicationContext())
                 .edit();
-        editor.putInt(key, value);
+
+        if (null == value)
+            editor.remove(key);
+        else
+            editor.putInt(key, value);
+
         boolean result = editor.commit();
 
         intValues.put(key, value);
