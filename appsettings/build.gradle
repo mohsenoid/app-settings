@@ -2,21 +2,20 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.2"
+version = "1.0.3"
 group = "com.mirhoseini.appsettings"
 
 def siteUrl = "http://mirhoseini.com/app-settings"
 def gitUrl = "https://github.com/mmirhoseini/app_settings.git"
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 27
     resourcePrefix "appsettings__"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 24
-        versionCode 3
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 4
         versionName version
     }
     buildTypes {
