@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.3"
+version = "1.0.4"
 group = "com.mirhoseini.appsettings"
 
 def siteUrl = "http://mirhoseini.com/app-settings"
-def gitUrl = "https://github.com/mmirhoseini/app_settings.git"
+def gitUrl = "https://github.com/mohsenoid/app_settings.git"
 
 android {
     compileSdkVersion 27
@@ -15,13 +16,33 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 4
+        versionCode 5
         versionName version
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'src/main/kotlin'
+            }
+        }
+        test {
+            java {
+                srcDirs += 'src/test/kotlin'
+            }
+        }
+        androidTest {
+            java {
+                srcDirs += 'src/androidTest/kotlin'
+            }
         }
     }
 }
@@ -103,4 +124,18 @@ artifacts {
 
 task findConventions << {
     println project.getConvention()
+}
+
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'javadoc'
+    outputDirectory = javadoc.destinationDir
+    inputs.dir 'src/main/kotlin'
+}
+
+javadocJar {
+    dependsOn(dokkaJavadoc)
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
