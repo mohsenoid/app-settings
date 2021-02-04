@@ -3,20 +3,20 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.4"
-group = "com.mirhoseini.appsettings"
+version = "1.0.5"
+group = "com.mohsenoid.appsettings"
 
-def siteUrl = "http://mirhoseini.com/app-settings"
+def siteUrl = "http://mohsenoid.com/app-settings"
 def gitUrl = "https://github.com/mohsenoid/app_settings.git"
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 30
     resourcePrefix "appsettings__"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 5
+        targetSdkVersion 30
+        versionCode 6
         versionName version
     }
 
@@ -47,12 +47,9 @@ android {
     }
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = "$System.env.BINTRAY_USER"
+    key = "$System.env.BINTRAY_APIKEY"
 
     configurations = ['archives']
     pkg {
@@ -60,7 +57,7 @@ bintray {
         name = "app-settings"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
-        licenses = ["MIT"]
+        licenses = ["Apache-2.0"]
         publish = true
     }
 }
@@ -86,9 +83,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'mmirhoseini'
-                        name 'Mohsen Mirhoseini Argi'
-                        email 'msn.mirhoseini@gmail.com'
+                        id 'mohsenoid'
+                        name 'Mohsen Mirhoseini'
+                        email 'contact@mohsenoid.com'
                     }
                 }
                 scm {
@@ -122,8 +119,10 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions << {
-    println project.getConvention()
+task findConventions {
+    doLast {
+        println project.getConvention()
+    }
 }
 
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
