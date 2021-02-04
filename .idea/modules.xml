@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app_settings.iml" filepath="$PROJECT_DIR$/app_settings.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appsettings/appsettings.iml" filepath="$PROJECT_DIR$/appsettings/appsettings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/app_settings.iml" filepath="$PROJECT_DIR$/.idea/app_settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app_settings.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app_settings.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/appsettings/app_settings.appsettings.iml" filepath="$PROJECT_DIR$/.idea/modules/appsettings/app_settings.appsettings.iml" />
     </modules>
   </component>
 </project>
