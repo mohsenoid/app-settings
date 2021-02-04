@@ -1,25 +1,46 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 30
+
     defaultConfig {
-        applicationId 'com.mirhoseini.appsettings.example'
+        applicationId 'com.mohsenoid.appsettings.example'
+
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.3"
+
+        versionCode 5
+        versionName "1.4"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     productFlavors {
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'src/main/kotlin'
+            }
+        }
+        test {
+            java {
+                srcDirs += 'src/test/kotlin'
+            }
+        }
+        androidTest {
+            java {
+                srcDirs += 'src/androidTest/kotlin'
+            }
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-package com.mirhoseini.appsettings
+package com.mohsenoid.appsettings
 
 import android.app.Activity
 import android.app.Service

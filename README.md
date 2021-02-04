@@ -38,12 +38,12 @@ This is a best practice for Android Applications Config Management using Shared 
 ```
 
 USAGE
---------
+-----
 
 Grab via Maven:
 ```xml
 <dependency>
-  <groupId>com.mirhoseini.appsettings</groupId>
+  <groupId>com.mohsenoid.appsettings</groupId>
   <artifactId>appsettings</artifactId>
   <version>1.0.2</version>
   <type>pom</type>
@@ -58,7 +58,7 @@ compile 'com.mirhoseini.appsettings:appsettings:1.0.2'
 License
 -------
 
-    Copyright (c) 2014 Mohsen Mirhoseini Argi
+    Copyright (c) 2021 Mohsen Mirhoseini Argi
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -77,9 +77,3 @@ License
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
-
-Designed By: [<b>Mohsen Mirhoseini Argi</b>][1]<br />
-
-Contact me: mohsen@mirhoseini.com
-
-[1]: http://www.mirhoseini.com

@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.5"
+version = "1.0.6"
 group = "com.mohsenoid.appsettings"
 
 def siteUrl = "http://mohsenoid.com/app-settings"
@@ -16,7 +16,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 30
-        versionCode 6
+
+        versionCode 7
         versionName version
     }
 

@@ -1,11 +1,10 @@
-package com.mirhoseini.appsettings.example
+package com.mohsenoid.appsettings.example
 
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import com.mirhoseini.appsettings.AppSettings
+import com.mohsenoid.appsettings.AppSettings
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : Activity(), View.OnClickListener {
 

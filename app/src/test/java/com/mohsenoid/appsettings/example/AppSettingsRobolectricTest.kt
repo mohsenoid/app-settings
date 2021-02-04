@@ -1,6 +1,6 @@
-package com.mirhoseini.appsettings.example
+package com.mohsenoid.appsettings.example
 
-import com.mirhoseini.appsettings.AppSettings
+import com.mohsenoid.appsettings.AppSettings
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
