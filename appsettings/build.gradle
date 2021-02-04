@@ -28,7 +28,6 @@ android {
         }
     }
 
-
     sourceSets {
         main {
             java {
@@ -78,8 +77,8 @@ install {
                 // Set your license
                 licenses {
                     license {
-                        name 'The MIT License (MIT)'
-                        url 'https://opensource.org/licenses/MIT'
+                        name 'Apache License, Version 2.0'
+                        url 'https://opensource.org/licenses/Apache-2.0'
                     }
                 }
                 developers {
@@ -102,7 +101,7 @@ install {
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+    archiveClassifier.set('sources')
 }
 
 task javadoc(type: Javadoc) {
@@ -111,8 +110,8 @@ task javadoc(type: Javadoc) {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
     from javadoc.destinationDir
+    archiveClassifier.set('javadoc')
 }
 
 artifacts {
@@ -120,16 +119,9 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions {
-    doLast {
-        println project.getConvention()
-    }
-}
-
 task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
     outputFormat = 'javadoc'
     outputDirectory = javadoc.destinationDir
-    inputs.dir 'src/main/kotlin'
 }
 
 javadocJar {
