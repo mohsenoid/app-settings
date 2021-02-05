@@ -43,15 +43,15 @@ USAGE
 Grab via Maven:
 ```xml
 <dependency>
-  <groupId>com.mohsenoid.appsettings</groupId>
-  <artifactId>appsettings</artifactId>
+  <groupId>com.mohsenoid.app-settings</groupId>
+  <artifactId>app-settings</artifactId>
   <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.mirhoseini.appsettings:appsettings:1.0.2'
+compile 'com.mirhoseini.app-settings:app-settings:1.0.2'
 ```
 
 

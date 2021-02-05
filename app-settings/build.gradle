@@ -4,7 +4,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 version = "1.0.6"
-group = "com.mohsenoid.appsettings"
+group = "com.mohsenoid.app-settings"
 
 def siteUrl = "http://mohsenoid.com/app-settings"
 def gitUrl = "https://github.com/mohsenoid/app_settings.git"
