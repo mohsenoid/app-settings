@@ -4,7 +4,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group = "com.mohsenoid.${name}"
-version = "1.0.6"
+version = "1.0.7"
 description = "This is a best practice for Android Applications Config Management using Shared Preferences."
 
 def siteUrl = "http://mohsenoid.com/${name}/"
@@ -18,7 +18,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 30
 
-        versionCode 7
+        versionCode 8
         versionName version
     }
 
