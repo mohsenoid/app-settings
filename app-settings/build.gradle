@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
+group = "com.mohsenoid.${name}"
 version = "1.0.6"
-group = "com.mohsenoid.app-settings"
+description = "This is a best practice for Android Applications Config Management using Shared Preferences."
 
-def siteUrl = "http://mohsenoid.com/app-settings"
-def gitUrl = "https://github.com/mohsenoid/app_settings.git"
+def siteUrl = "http://mohsenoid.com/${name}/"
+def gitUrl = "https://github.com/mohsenoid/${name}.git"
 
 android {
     compileSdkVersion 30
@@ -47,57 +48,10 @@ android {
     }
 }
 
-bintray {
-    user = "$System.env.BINTRAY_USER"
-    key = "$System.env.BINTRAY_APIKEY"
-
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "app-settings"
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-
-                // Add your description here
-                name 'This is a best practice for Android Applications Config Management using Shared Preferences.\n' +
-                        'AppSettings class help you to manage deferent types of data in your application and load them in memory for faster use also save them in shared preferences for next run.'
-                url siteUrl
-
-                // Set your license
-                licenses {
-                    license {
-                        name 'Apache License, Version 2.0'
-                        url 'https://opensource.org/licenses/Apache-2.0'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'mohsenoid'
-                        name 'Mohsen Mirhoseini'
-                        email 'contact@mohsenoid.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-
-                }
-            }
-        }
-    }
-}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -119,15 +73,70 @@ artifacts {
     archives sourcesJar
 }
 
-task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
-    outputFormat = 'javadoc'
-    outputDirectory = javadoc.destinationDir
-}
+afterEvaluate {
+    publishing {
+        publications {
+            aar(MavenPublication) {
+                groupId = project.group
+                artifactId = project.name
+                version = project.version
 
-javadocJar {
-    dependsOn(dokkaJavadoc)
-}
+                from components.findByName("release")
 
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+                artifact sourcesJar
+                artifact javadocJar
+
+                pom {
+                    name = project.name
+                    packaging = 'aar'
+                    description = project.description
+                    url = siteUrl
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'mohsenoid'
+                            name = 'Mohsen Mirhoseini'
+                            email = 'contact@mohsenoid.com'
+                        }
+                    }
+                    scm {
+                        connection = gitUrl
+                        developerConnection = gitUrl
+                        url = siteUrl
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                // change URLs to point to your repos, e.g. http://my.org/repo
+                def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+                def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+                authentication {
+                    basic(BasicAuthentication) {
+                        credentials {
+                            username = "$System.env.MOHSENOID_OSSRH_USERNAME"
+                            password = "$System.env.MOHSENOID_OSSRH_PASSWORD"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    setProperty("signing.keyId", "$System.env.MOHSENOID_SIGNING_KEY_ID")
+    setProperty("signing.password", "$System.env.MOHSENOID_SIGNING_PASSWORD")
+
+    signing {
+        sign publishing.publications.aar
+    }
 }
